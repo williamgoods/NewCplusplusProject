@@ -4,15 +4,12 @@ variable='CMAKE_PROJECT_NAME'
 ProjectName=""
 CMakePorjectNameStatic="CMAKE_PROJECT_NAME:STATIC="
 
-#if [ ! -d "build" ]; then
-  #mkdir build
-#fi
 mkdir -p build
 
 cd build
-cmake ..
-make clean
-make -j 32
+cmake -G Ninja ..
+ninja clean
+ninja
 
 cat CMakeCache.txt | while read line
 do
