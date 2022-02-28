@@ -7,9 +7,11 @@ CMakePorjectNameStatic="CMAKE_PROJECT_NAME:STATIC="
 mkdir -p build
 
 cd build
-cmake -G Ninja ..
-ninja clean
-ninja
+#cmake -G Ninja -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+cmake -P ../script/CMakeLists.txt
+cmake -G Ninja .. -DCMAKE_EXPORT_COMPILE_COMMANDS=1
+#ninja clean
+ninja -j 32
 
 cat CMakeCache.txt | while read line
 do
