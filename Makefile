@@ -1,3 +1,9 @@
 
 run:
-	bash script/run.sh
+	@make ProjectRun --no-print-directory
+
+ProjectRun:
+	@bash script/run.sh
+
+clean:
+	@rm -rf build
