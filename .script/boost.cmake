@@ -1,5 +1,8 @@
 include(ExternalProject)
 
+# add pthread support of boost asio
+list(APPEND CMAKE_LINK_LIBS "pthread")
+
 SET(Boost_USE_STATIC_LIBS ON)
 SET(Boost_USE_MULTITHREAD ON)
 
